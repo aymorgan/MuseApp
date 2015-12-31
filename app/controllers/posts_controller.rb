@@ -4,10 +4,11 @@ class PostsController < ApplicationController
 
   def index
     @post = Post.all.order("created_at DESC")
+    @comment = Comment.where(post_id: @post)
   end
 
   def show
-
+    @comment = Comment.where(post_id: @post)
   end
 
   def new
